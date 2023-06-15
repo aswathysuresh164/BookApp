@@ -1,0 +1,56 @@
+<nav class="navbar navbar-expand-lg navbar-light "style="background-color: #e3f2fd;" >
+  <img src="../../assets/bbpic.jpeg" width="50px" height="50px" style="border-radius:100px; margin-left: 1%;"/><h2>BookMine.com
+  </h2>
+   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" >
+     <span class="navbar-toggler-icon"></span>
+   </button>
+
+
+
+
+   <div class="collapse navbar-collapse" id="navbarSupportedContent">
+  
+     <ul class="navbar-nav mr-auto">
+        
+           <li class="nav-item">
+             <button class="nav-link" mat-button (click)="home()" style="margin-left:4px" >Home</button>
+           </li>
+           <form [formGroup]="booksearch" (ngSubmit)="search()" class="form-inline my-2 my-lg-5 search-form">
+            <input  [formControl]="title" class="form-control mr-sm-1 search-filled" type="search" placeholder="Search" aria-label="Search"/>
+            <button class="btn btn-outline-success my-1 my-sm-0" type="submit" onclick="search()"> Search </button>
+            
+          </form>
+       
+         <li *ngIf="flag==true" class="nav-item">
+           <button class="nav-link" mat-button (click)="login()" style="margin-left:5px">Login</button><span class="sr-only">(current)</span>
+           </li>
+           <li *ngIf="flag==true" class="nav-item">
+             <button class="nav-link" mat-button (click)="register()" style="margin-left:10px">Register</button><span class="sr-only">(current)</span>
+           </li>
+       <li *ngIf="flag==false" class="nav-item">
+         <button class="nav-link" mat-button (click)="fav()" >Favourites</button>
+       </li>
+     
+       <li *ngIf="flag==false"  class="nav-item">
+         <button class="nav-link" mat-button (click)="rec()" >Recommendations</button>
+       </li>
+       <li>
+     
+       </li>
+     </ul>
+     
+     
+  
+     <div class="dropdown" *ngIf="flag==false">
+       <a class=" dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+         <img [src] = "mypic"  width="50px" height="50px" style="border-radius:100px; margin-left: 30px;" *ngIf="mypic">
+        
+       </a>
+       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+         <a class="dropdown-item" href="#" (click)="signout()" style="font-size:12px ;">Sign Out</a>
+         
+       </div>
+     </div>
+     
+        </div>
+</nav>
